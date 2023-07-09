@@ -1,13 +1,55 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Garage Parrot{% endblock %}
 {% block body %}
-
-<div class="example-wrapper">
-    <h1 class="rouge">Garage Parrot</h1>
-    <p>test 3</p>
-    This friendly message is coming from:
-    <button>bouton 1</button>
-    <button class="btn btn-primary">bouton 2</button>
+<!--Titre-->
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <h1 class="text-center">Garage Parrot</h1>
+    <div class="col"></div>
+  </div>
 </div>
+    <nav class="navbar navbar-expand-sm custom-nav bg-light">
+        <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/">Accueil</a>
+            <a class="nav-item nav-link" href="sales">Nos ventes</a>
+            <a class="nav-item nav-link" href="contact">Nous contacter</a>
+            <a class="nav-item nav-link" href="connection">Connexion</a>
+            <a class="nav-item nav-link" href="legal">Mentions légales</a>
+          </div>
+        </div>
+        </div>
+    </nav>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Exercitationem iure ea ad. Nam delectus, tempora unde in amet 
+                 deleniti repellat exercitationem qui quia mollitia consequuntur
+                  ipsam fugiat eligendi modi harum?</p>
+        </div>
+    </div>
+
+</div>
+<div class="container my-5">
+    <div class="row">
+      <div class="col-10 p-3 border">Colonne avec 10 unités</div>
+      <div class="col-5 p-3 border">Colonne avec 5 unités</div>
+      <div class="col-4 p-3 border">Colonne avec 4 unités</div>
+    </div>
+  </div>
+  <!--Footer-->
+  <footer class="foot">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <p>Nous sommes ouvert : du lundi au vendredi - de 8h45 à 12h00 et de 14h00 à 18h00 <br>
+                le samedi - de 8h45 à 12h00<br>
+              &copy; 2023 site réalisé dans le cadre d'une évaluation</p>
+            </div>
+        </div>
+    </div>
+  </footer>
 {% endblock %}

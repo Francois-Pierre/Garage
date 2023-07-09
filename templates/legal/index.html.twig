@@ -1,20 +1,47 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Mentions légales{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/letig/Desktop/ECF garage/Garage/src/Controller/LegalController.php'|file_link(0) }}">src/Controller/LegalController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/letig/Desktop/ECF garage/Garage/templates/legal/index.html.twig'|file_link(0) }}">templates/legal/index.html.twig</a></code></li>
-    </ul>
+<!--Titre-->
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <h1 class="text-center">Garage Parrot</h1>
+    <div class="col"></div>
+  </div>
 </div>
+<div class="container">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+</div>
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/">Accueil</a>
+        <a class="nav-item nav-link" href="sales">Nos ventes</a>
+        <a class="nav-item nav-link" href="contact">Nous contacter</a>
+        <a class="nav-item nav-link" href="connection">Connexion</a>
+        <a class="nav-item nav-link" href="legal">Mentions légales</a>
+      </div>
+    </div>
+</nav>
+<div>
+  <ul>
+    <li><p>Ce site à été réalisé dans le cadre d'une évaluation.</p></li>
+    <li><p>Il est hébergé chez alwaysdata.</p></li>
+    <li><p>Les illustrations utilisées sont libres de droits.</p></li>
+    <li><p>Elles proviennent des sites pexels.com et pixabay.com</p></li>
+    <li><p>Pour contacter le développeur, merci de prendre contact avec Study.fr</p></li>
+  </ul>
+</div>
+<!--Footer-->
+<footer class="foot">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+            <p>Nous sommes ouvert : du lundi au vendredi - de 8h45 à 12h00 et de 14h00 à 18h00 <br>
+              le samedi - de 8h45 à 12h00<br>
+            &copy; 2023 site réalisé dans le cadre d'une évaluation</p>
+          </div>
+      </div>
+  </div>
+</footer>
 {% endblock %}

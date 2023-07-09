@@ -1,7 +1,43 @@
 @import "custom";
 @import "~bootstrap/scss/bootstrap";
 
-
 body {
-    background-color: lightgray;
+    background-color: #f2f2f2;
 }
+h1 {
+    color: #262526;
+    font-family: 'Rajdhani', sans-serif;
+}
+.text-raj{
+    font-family: 'Rajdhani', sans-serif;
+}
+.text-bar{
+    font-family: 'Barlow', sans-serif;
+}
+.custom-nav{
+    flex-wrap: nowrap;
+    justify-content: flex-end !important;
+    text-decoration: dotted;
+}
+.foot{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    background: #262526;
+    font-family: 'Rajdhani', sans-serif;
+    color:#f2f2f2 ;
+}
+
+
+
+/*
+    color:#d92332; rouge;
+    color: #d94350; peche;
+    color:#d9777f; rose;
+    color:#262526; noir;
+    color:#f2f2f2; blanc;
+    font-family: 'Barlow', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
+*/
