@@ -2,7 +2,10 @@
 @import "~bootstrap/scss/bootstrap";
 
 body {
-    background-color: #f2f2f2;
+    background-color: #d9777f;
+}
+.bg-pink{
+    background-color: #d94350;
 }
 h1 {
     color: #262526;
@@ -13,11 +16,6 @@ h1 {
 }
 .text-bar{
     font-family: 'Barlow', sans-serif;
-}
-.custom-nav{
-    flex-wrap: nowrap;
-    justify-content: flex-end !important;
-    text-decoration: dotted;
 }
 .foot{
     position: absolute;
@@ -32,7 +30,7 @@ h1 {
 
 
 
-/*
+/*.frere{
     color:#d92332; rouge;
     color: #d94350; peche;
     color:#d9777f; rose;
@@ -40,4 +38,4 @@ h1 {
     color:#f2f2f2; blanc;
     font-family: 'Barlow', sans-serif;
     font-family: 'Rajdhani', sans-serif;
-*/
+}

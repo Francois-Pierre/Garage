@@ -2,16 +2,16 @@
 {% block title %}Garage Parrot{% endblock %}
 {% block body %}
 <!--Titre-->
-<div class="container">
+<div class="container text-center">
   <div class="row">
-    <div class="col"></div>
-    <h1 class="text-center">Garage Parrot</h1>
-    <div class="col"></div>
+    <div class="col-4"><img src="{{ asset('pictures/car-logo-vg.jpg') }}" class="img-fluid" alt="logo voiture"></div>
+    <h1 class="col-4">Garage Parrot</h1>
+    <div class="col-4"><img src="{{ asset('pictures/car-logo-vd.jpg') }}" class="img-fluid" alt="logo voiture"></div>
   </div>
 </div>
-    <nav class="navbar navbar-expand-sm custom-nav bg-light">
-        <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<!--Barre de navigation-->
+    <nav class="navbar navbar-expand-sm container bg-light">
+        <div class="collapse navbar-collapse justify-content-around" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-item nav-link" href="/">Accueil</a>
             <a class="nav-item nav-link" href="sales">Nos ventes</a>
@@ -22,6 +22,7 @@
         </div>
         </div>
     </nav>
+<!--Texte central-->
 <div class="container">
     <div class="row">
         <div class="col">

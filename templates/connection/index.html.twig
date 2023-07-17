@@ -20,6 +20,23 @@
       </div>
     </div>
 </nav>
+<!--add-->
+
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <form action="{{ path('app_connection') }}" method="post">
+        <label for="username">Email:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password"/>
+        <!--<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">-->
+
+         <input type="hidden" name="_target_path" value="{{ path('app_main') }}"/>
+        <button type="submit">login</button>
+    </form>
 <!--Footer-->
 <footer class="foot">
   <div class="container">
