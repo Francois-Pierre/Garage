@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CommentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use DateTimeImmutable;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 class Comment
@@ -20,6 +21,12 @@ class Comment
     #[ORM\Column]
     private ?int $Rank = null;
 
+    #[ORM\Column]
+    private ?\DateTimeImmutable $CreatedAt = null;
+
+    #[ORM\Column(length: 30)]
+    private ?string $Author = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -33,7 +40,6 @@ class Comment
     public function setText(string $Text): static
     {
         $this->Text = $Text;
-
         return $this;
     }
 
@@ -45,6 +51,27 @@ class Comment
     public function setRank(int $Rank): static
     {
         $this->Rank = $Rank;
+        return $this;
+    }
+
+    public function __construct()
+    {
+        $this->CreatedAt = new DateTimeImmutable();
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->CreatedAt;
+    }
+
+    public function getAuthor(): ?string
+    {
+        return $this->Author;
+    }
+
+    public function setAuthor(string $Author): static
+    {
+        $this->Author = $Author;
 
         return $this;
     }

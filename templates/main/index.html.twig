@@ -3,55 +3,57 @@
 {% block body %}
 <!--Titre-->
 <div class="container text-center">
-  <div class="row">
-    <div class="col-4"><img src="{{ asset('pictures/car-logo-vg.jpg') }}" class="img-fluid" alt="logo voiture"></div>
-    <h1 class="col-4">Garage Parrot</h1>
-    <div class="col-4"><img src="{{ asset('pictures/car-logo-vd.jpg') }}" class="img-fluid" alt="logo voiture"></div>
-  </div>
+    <div class="row">
+        <div class="col-4"><img src="{{ asset('pictures/car-logo-vg.jpg') }}" class="img-fluid" alt="logo voiture"></div>
+        <div class="col-4 d-flex align-items-center">
+            <h1 class="w-100">Garage Parrot</h1>
+        </div>
+        <div class="col-4"><img src="{{ asset('pictures/car-logo-vd.jpg') }}" class="img-fluid" alt="logo voiture"></div>
+    </div>
 </div>
 <!--Barre de navigation-->
-    <nav class="navbar navbar-expand-sm container bg-light">
-        <div class="collapse navbar-collapse justify-content-around" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
+<nav class="navbar navbar-expand-sm container">
+    <div class="collapse navbar-collapse justify-content-around" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
             <a class="nav-item nav-link" href="/">Accueil</a>
             <a class="nav-item nav-link" href="sales">Nos ventes</a>
             <a class="nav-item nav-link" href="contact">Nous contacter</a>
             <a class="nav-item nav-link" href="connection">Connexion</a>
             <a class="nav-item nav-link" href="legal">Mentions légales</a>
-          </div>
         </div>
-        </div>
-    </nav>
+    </div>
+</nav>
 <!--Texte central-->
-<div class="container">
-    <div class="row">
+<div class="container d-flex justify-content-center">
+    <div class="row mt-4 flex-column">
         <div class="col">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Exercitationem iure ea ad. Nam delectus, tempora unde in amet 
-                 deleniti repellat exercitationem qui quia mollitia consequuntur
-                  ipsam fugiat eligendi modi harum?</p>
+            <h2>Nous proposons de nombreux services comme :</h2>
+            <ul>
+                <li>Réparation de carroserie</li>
+                <li>Pose de pièces</li>
+                <li>Nettoyage intérieur/extérieur</li>
+            </ul>
         </div>
-        <button type="button" class="btn btn-primary">Primary</button>
+        <div class="col">
+            <h2>Derniers Commentaires</h2>
+            <ul class="list-unstyled">
+                {% for comment in comments %}
+                    <li class="comment-container">{{ comment.Author }} - {{ comment.Text }} - {{ comment.Rank }} - {{ comment.createdAt|date('Y-m-d H:i:s') }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
-
 </div>
-<div class="container my-5">
-    <div class="row">
-      <div class="col-10 p-3 border">Colonne avec 10 unités</div>
-      <div class="col-5 p-3 border">Colonne avec 5 unités</div>
-      <div class="col-4 p-3 border">Colonne avec 4 unités</div>
-    </div>
-  </div>
-  <!--Footer-->
-  <footer class="foot">
+<!--Footer-->
+<footer class="foot">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-              <p>Nous sommes ouvert : du lundi au vendredi - de 8h45 à 12h00 et de 14h00 à 18h00 <br>
+                <p>Nous sommes ouvert : du lundi au vendredi - de 8h45 à 12h00 et de 14h00 à 18h00 <br>
                 le samedi - de 8h45 à 12h00<br>
               &copy; 2023 site réalisé dans le cadre d'une évaluation</p>
             </div>
         </div>
     </div>
-  </footer>
+</footer>
 {% endblock %}

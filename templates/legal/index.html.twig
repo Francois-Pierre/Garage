@@ -2,35 +2,40 @@
 {% block title %}Mentions légales{% endblock %}
 {% block body %}
 <!--Titre-->
-<div class="container">
+<div class="container text-center">
   <div class="row">
-    <div class="col"></div>
-    <h1 class="text-center">Garage Parrot</h1>
-    <div class="col"></div>
+      <div class="col-4"><img src="{{ asset('pictures/car-logo-vg.jpg') }}" class="img-fluid" alt="logo voiture"></div>
+      <div class="col-4 d-flex align-items-center">
+          <h1 class="w-100">Garage Parrot</h1>
+      </div>
+      <div class="col-4"><img src="{{ asset('pictures/car-logo-vd.jpg') }}" class="img-fluid" alt="logo voiture"></div>
   </div>
 </div>
-<div class="container">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-</div>
-<nav class="navbar navbar-expand-lg bg-light">
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<!--Barre de navigation-->
+<nav class="navbar navbar-expand-sm container">
+  <div class="collapse navbar-collapse justify-content-around" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" href="/">Accueil</a>
-        <a class="nav-item nav-link" href="sales">Nos ventes</a>
-        <a class="nav-item nav-link" href="contact">Nous contacter</a>
-        <a class="nav-item nav-link" href="connection">Connexion</a>
-        <a class="nav-item nav-link" href="legal">Mentions légales</a>
+          <a class="nav-item nav-link" href="/">Accueil</a>
+          <a class="nav-item nav-link" href="sales">Nos ventes</a>
+          <a class="nav-item nav-link" href="contact">Nous contacter</a>
+          <a class="nav-item nav-link" href="connection">Connexion</a>
+          <a class="nav-item nav-link" href="legal">Mentions légales</a>
       </div>
-    </div>
+  </div>
 </nav>
-<div>
-  <ul>
-    <li><p>Ce site à été réalisé dans le cadre d'une évaluation.</p></li>
-    <li><p>Il est hébergé chez alwaysdata.</p></li>
-    <li><p>Les illustrations utilisées sont libres de droits.</p></li>
-    <li><p>Elles proviennent des sites pexels.com et pixabay.com</p></li>
-    <li><p>Pour contacter le développeur, merci de prendre contact avec Study.fr</p></li>
-  </ul>
+<!--Contenu-->
+<div class="container d-flex justify-content-center">
+    <div class="row mt-5">
+        <div class="col">
+            <ul>
+                <li><p>Ce site à été réalisé dans le cadre d'une évaluation.</p></li>
+                <li><p>Il est hébergé chez alwaysdata.</p></li>
+                <li><p>Les illustrations utilisées sont libres de droits.</p></li>
+                <li><p>Elles proviennent des sites pexels.com et pixabay.com</p></li>
+                <li><p>Pour contacter le développeur, merci de prendre contact avec Study.fr</p></li>
+            </ul>
+        </div>
+    </div>
 </div>
 <!--Footer-->
 <footer class="foot">

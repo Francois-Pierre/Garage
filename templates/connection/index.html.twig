@@ -2,41 +2,50 @@
 {% block title %}Connexion{% endblock %}
 {% block body %}
 <!--Titre-->
-<div class="container">
+<div class="container text-center">
   <div class="row">
-    <div class="col"></div>
-    <h1 class="text-center">Garage Parrot</h1>
-    <div class="col"></div>
+      <div class="col-4"><img src="{{ asset('pictures/car-logo-vg.jpg') }}" class="img-fluid" alt="logo voiture"></div>
+      <div class="col-4 d-flex align-items-center">
+          <h1 class="w-100">Garage Parrot</h1>
+      </div>
+      <div class="col-4"><img src="{{ asset('pictures/car-logo-vd.jpg') }}" class="img-fluid" alt="logo voiture"></div>
   </div>
 </div>
-<nav class="navbar navbar-expand-lg bg-light">
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<!--Barre de navigation-->
+<nav class="navbar navbar-expand-sm container">
+  <div class="collapse navbar-collapse justify-content-around" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" href="/">Accueil</a>
-        <a class="nav-item nav-link" href="sales">Nos ventes</a>
-        <a class="nav-item nav-link" href="contact">Nous contacter</a>
-        <a class="nav-item nav-link" href="connection">Connexion</a>
-        <a class="nav-item nav-link" href="legal">Mentions légales</a>
+          <a class="nav-item nav-link" href="/">Accueil</a>
+          <a class="nav-item nav-link" href="sales">Nos ventes</a>
+          <a class="nav-item nav-link" href="contact">Nous contacter</a>
+          <a class="nav-item nav-link" href="connection">Connexion</a>
+          <a class="nav-item nav-link" href="legal">Mentions légales</a>
       </div>
-    </div>
+  </div>
 </nav>
-<!--add-->
-
+<!--Formulaire de connexion-->
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
-
-    <form action="{{ path('app_connection') }}" method="post">
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password"/>
-        <!--<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">-->
-
-         <input type="hidden" name="_target_path" value="{{ path('app_main') }}"/>
-        <button type="submit">login</button>
-    </form>
+<div class="container d-flex justify-content-center">
+    <div class="row mt-5">
+        <div class="col">
+            <form action="{{ path('app_connection') }}" method="post">
+                <label for="username">Adresse mail:</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+            
+                <label for="password">Mot de passe:</label>
+                <input type="password" id="password" name="_password"/>
+                <!--<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">-->
+            
+                 <input type="hidden" name="_target_path" value="{{ path('app_main') }}"/>
+                <div class="mt-4">
+                  <button type="submit" class="btn btn-success">Connexion</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <!--Footer-->
 <footer class="foot">
   <div class="container">
