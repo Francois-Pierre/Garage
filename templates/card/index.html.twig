@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block title %}Créer une annonce{% endblock %}
+{% block body %}
+<!--Creation de commentaire-->
+<div class="container">
+        <div class="row">
+            <h1>Votre annonce</h1>
+
+            {{ form_errors(cardForm) }}
+        
+            {{ form_start(cardForm) }}
+
+                <div class="form-group">
+                    {{ form_label(cardForm.Title, 'Titre') }}
+                    {{ form_widget(cardForm.Title, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(cardForm.Description, 'Description') }}
+                    {{ form_widget(cardForm.Description, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(cardForm.Price, 'Prix') }}
+                    {{ form_widget(cardForm.Price, {'attr': {'class': 'form-control'}}) }}
+                </div>                
+
+                <div class="form-group">
+                    {{ form_label(cardForm.Mileage, 'Kilométrage') }}
+                    {{ form_widget(cardForm.Mileage, {'attr': {'class': 'form-control'}}) }}
+                </div> 
+
+                <div class="form-group">
+                    {{ form_label(cardForm.Year, 'Mise en circulation') }}
+                    {{ form_widget(cardForm.Year, {'attr': {'class': 'form-control'}}) }}
+                </div>
+        
+                <button type="submit" class="btn btn-success">Valider</button>
+            {{ form_end(cardForm) }}
+        </div>
+</div>
+{% endblock %}

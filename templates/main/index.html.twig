@@ -1,59 +1,37 @@
 {% extends 'base.html.twig' %}
 {% block title %}Garage Parrot{% endblock %}
 {% block body %}
-<!--Titre-->
-<div class="container text-center">
-    <div class="row">
-        <div class="col-4"><img src="{{ asset('pictures/car-logo-vg.jpg') }}" class="img-fluid" alt="logo voiture"></div>
-        <div class="col-4 d-flex align-items-center">
-            <h1 class="w-100">Garage Parrot</h1>
-        </div>
-        <div class="col-4"><img src="{{ asset('pictures/car-logo-vd.jpg') }}" class="img-fluid" alt="logo voiture"></div>
-    </div>
-</div>
-<!--Barre de navigation-->
-<nav class="navbar navbar-expand-sm container">
-    <div class="collapse navbar-collapse justify-content-around" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/">Accueil</a>
-            <a class="nav-item nav-link" href="sales">Nos ventes</a>
-            <a class="nav-item nav-link" href="contact">Nous contacter</a>
-            <a class="nav-item nav-link" href="connection">Connexion</a>
-            <a class="nav-item nav-link" href="legal">Mentions légales</a>
-        </div>
-    </div>
-</nav>
 <!--Texte central-->
 <div class="container d-flex justify-content-center">
     <div class="row mt-4 flex-column">
         <div class="col">
-            <h2>Nous proposons de nombreux services comme :</h2>
-            <ul>
-                <li>Réparation de carroserie</li>
-                <li>Pose de pièces</li>
-                <li>Nettoyage intérieur/extérieur</li>
-            </ul>
+            <h2>Parmi les services que nous proposons :</h2>
+                <div class="cadre-1">&#128295;   Réparation de carroserie</div>
+                <div class="cadre-1">&#128295;   Diagnostique électronique</div>
+                <div class="cadre-1">&#128295;   Nettoyage intérieur/extérieur</div>
+                <div class="cadre-1">&#128295;   Pose de pièces</div>
+                <div class="cadre-1">&#128295;   Installation de boitier bio-éthanol</div>
         </div>
         <div class="col">
-            <h2>Derniers Commentaires</h2>
+            <h2>Derniers Avis de nos clients :</h2>
             <ul class="list-unstyled">
                 {% for comment in comments %}
-                    <li class="comment-container">{{ comment.Author }} - {{ comment.Text }} - {{ comment.Rank }} - {{ comment.createdAt|date('Y-m-d H:i:s') }}</li>
+                <li class="container comment-container">
+                    <div class="row">
+                        <div class="col"><p>De : {{ comment.Author }}</p></div>
+                        <div class="col text-end">{{ comment.Rank }} &#9733;</div>
+                    </div>
+                    <div class="row">
+                        <p>{{ comment.Text }}</p>
+                    </div>
+                    <div class="row text-center">
+                        <p>Posté le {{ comment.createdAt|date('Y-m-d H:i:s') }}</p>
+                    </div>
+
+                </li>
                 {% endfor %}
             </ul>
         </div>
     </div>
 </div>
-<!--Footer-->
-<footer class="foot">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <p>Nous sommes ouvert : du lundi au vendredi - de 8h45 à 12h00 et de 14h00 à 18h00 <br>
-                le samedi - de 8h45 à 12h00<br>
-              &copy; 2023 site réalisé dans le cadre d'une évaluation</p>
-            </div>
-        </div>
-    </div>
-</footer>
 {% endblock %}

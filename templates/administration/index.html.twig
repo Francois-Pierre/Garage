@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title %}Gestion du site{% endblock %}
+{% block body %}
+<!--Contenu-->
+<div class="container d-flex justify-content-center">
+    <div class="row mt-4 flex-column">
+        <div class="col">
+          <a href="{{ path('app_register') }}">Création de compte</a>
+          <a href="comment crude">Modération des commentaires</a>
+          <a href="card">Création d'annonce</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

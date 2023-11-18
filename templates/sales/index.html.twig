@@ -1,38 +1,29 @@
 {% extends 'base.html.twig' %}
 {% block title %}Nos véhicules occasion{% endblock %}
 {% block body %}
-<!--Titre-->
-<div class="container text-center">
+<!--Creation de commentaire-->
+<div class="container">
   <div class="row">
-      <div class="col-4"><img src="{{ asset('pictures/car-logo-vg.jpg') }}" class="img-fluid" alt="logo voiture"></div>
-      <div class="col-4 d-flex align-items-center">
-          <h1 class="w-100">Garage Parrot</h1>
-      </div>
-      <div class="col-4"><img src="{{ asset('pictures/car-logo-vd.jpg') }}" class="img-fluid" alt="logo voiture"></div>
+      <h2>Votre annonce</h2>
+          {% for card in cards %}
+              <div class="card card-container">
+                <img src="{{ asset(card.ImagePath starts with '/' ? card.ImagePath : '/pictures/' ~ card.ImagePath) }}" class="card-img-top" alt="{{ card.ImagePath }}">
+                <div class="card-body">
+                  <h5 class="card-title">{{ card.Title }}</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">{{ card.Price }}</li>
+                  <li class="list-group-item">{{ card.Mileage }}</li>
+                  <li class="list-group-item">{{ card.Year }}</li>
+                </ul>
+                <div class="card-body">
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div>
+              </div>
+          {% endfor %}
+
   </div>
 </div>
-<!--Barre de navigation-->
-<nav class="navbar navbar-expand-sm container">
-  <div class="collapse navbar-collapse justify-content-around" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-          <a class="nav-item nav-link" href="/">Accueil</a>
-          <a class="nav-item nav-link" href="sales">Nos ventes</a>
-          <a class="nav-item nav-link" href="contact">Nous contacter</a>
-          <a class="nav-item nav-link" href="connection">Connexion</a>
-          <a class="nav-item nav-link" href="legal">Mentions légales</a>
-      </div>
-  </div>
-</nav>
-<!--Footer-->
-<footer class="foot">
-  <div class="container">
-      <div class="row">
-          <div class="col-md-12">
-            <p>Nous sommes ouvert : du lundi au vendredi - de 8h45 à 12h00 et de 14h00 à 18h00 <br>
-              le samedi - de 8h45 à 12h00<br>
-            &copy; 2023 site réalisé dans le cadre d'une évaluation</p>
-          </div>
-      </div>
-  </div>
-</footer>
 {% endblock %}
