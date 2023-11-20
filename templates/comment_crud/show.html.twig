@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Comment{% endblock %}
+{% block title %}Commentaire choisi{% endblock %}
 
 {% block body %}
     <h1>Comment</h1>
@@ -8,31 +8,31 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>Numéro</th>
                 <td>{{ comment.id }}</td>
             </tr>
             <tr>
-                <th>Text</th>
+                <th>Texte</th>
                 <td>{{ comment.Text }}</td>
             </tr>
             <tr>
-                <th>Rank</th>
+                <th>Rang</th>
                 <td>{{ comment.Rank }}</td>
             </tr>
             <tr>
-                <th>CreatedAt</th>
+                <th>Date</th>
                 <td>{{ comment.CreatedAt ? comment.CreatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Author</th>
+                <th>Auteur</th>
                 <td>{{ comment.Author }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_comment_crud_index') }}">back to list</a>
+    <a href="{{ path('app_comment_crud_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('app_comment_crud_edit', {'id': comment.id}) }}">edit</a>
+    <a href="{{ path('app_comment_crud_edit', {'id': comment.id}) }}">Modifier</a>
 
     {{ include('comment_crud/_delete_form.html.twig') }}
 {% endblock %}

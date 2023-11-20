@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pied-de-page{% endblock %}
+
+{% block body %}
+    <h1>Opening</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ opening.id }}</td>
+            </tr>
+            <tr>
+                <th>Hours</th>
+                <td>{{ opening.Hours }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_opening_index') }}">back to list</a>
+
+    <a href="{{ path('app_opening_edit', {'id': opening.id}) }}">edit</a>
+
+    {{ include('opening/_delete_form.html.twig') }}
+{% endblock %}

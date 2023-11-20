@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des annonces{% endblock %}
+
+{% block body %}
+<div class="container mt-3">
+    <h2>Liste des annonces</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Numéro</th>
+                <th>Titre</th>
+                <th>Prix</th>
+                <th>Kilométrage</th>
+                <th>Année</th>
+                <th>URL de l'image</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for card in cards %}
+            <tr>
+                <td>{{ card.id }}</td>
+                <td>{{ card.Title }}</td>
+                <td>{{ card.Price }}</td>
+                <td>{{ card.Mileage }}</td>
+                <td>{{ card.year }}</td>
+                <td>{{ card.ImagePath }}</td>
+                <td>{{ card.Description }}</td>
+                <td>
+                    <a href="{{ path('app_card_crud_show', {'id': card.id}) }}">Montrer</a>
+                    <a href="{{ path('app_card_crud_edit', {'id': card.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucune annonce</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

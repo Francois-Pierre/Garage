@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
-{% block title %}Connexion{% endblock %}
+{% block title %}Connection{% endblock %}
 {% block body %}
 <!--Formulaire de connexion-->
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
-<div class="container d-flex justify-content-center">
+<div class="container d-flex justify-content-center wrapper">
     <div class="row mt-5">
         <div class="col">
             <form action="{{ path('app_connection') }}" method="post">
@@ -20,8 +20,25 @@
                 <div class="mt-4 text-center">
                   <button type="submit" class="btn btn-success">Connexion</button>
                 </div>
+                {% if app.user %}
+                {# Si l'utilisateur est connecté, affichez le bouton de déconnexion #}
+                <div class="mt-4 text-center">
+                    <button type="submit" class="btn btn-danger"><a href="{{ path('logout') }}" style="color: white; text-decoration: none;">Déconnexion</a></button>
+                </div>
+                {% endif %}
             </form>
         </div>
     </div>
 </div>
+<!--Footer-->
+<footer>
+    <div class="container text-center foot">
+        <div class="row">
+            <div class="col">
+                <p>{{ opening.hours }}</p>
+              &copy; 2023 site réalisé dans le cadre d'une évaluation</p>
+            </div>
+        </div>
+    </div>
+</footer>
 {% endblock %}

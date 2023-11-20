@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Comment{% endblock %}
+{% block title %}Modification du commentaire{% endblock %}
 
 {% block body %}
-    <h1>Edit Comment</h1>
+<div class="container mt-3">
+    <h2>Modifier le commentaire</h2>
 
-    {{ include('comment_crud/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('comment_crud/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('app_comment_crud_index') }}">back to list</a>
+    <a href="{{ path('app_comment_crud_index') }}">Retour à la liste</a>
 
     {{ include('comment_crud/_delete_form.html.twig') }}
+</div>
 {% endblock %}

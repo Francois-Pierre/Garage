@@ -21,11 +21,11 @@
                         <div class="col"><p>De : {{ comment.Author }}</p></div>
                         <div class="col text-end">{{ comment.Rank }} &#9733;</div>
                     </div>
-                    <div class="row">
+                    <div class="row text-bar-2">
                         <p>{{ comment.Text }}</p>
                     </div>
                     <div class="row text-center">
-                        <p>Posté le {{ comment.createdAt|date('Y-m-d H:i:s') }}</p>
+                        <p>Posté le {{ comment.createdAt|date('Y-m-d') }} à {{ comment.createdAt|date('H:i:s') }}</p>
                     </div>
 
                 </li>
@@ -34,4 +34,15 @@
         </div>
     </div>
 </div>
+<!--Footer-->
+<footer>
+    <div class="container text-center foot">
+        <div class="row">
+            <div class="col">
+                <p>{{ opening.hours }}</p>
+              &copy; 2023 site réalisé dans le cadre d'une évaluation</p>
+            </div>
+        </div>
+    </div>
+</footer>
 {% endblock %}

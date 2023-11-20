@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Choix du pied-de-page{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h2>Nouveau pied-de-page</h2>
+
+    {{ include('opening/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('app_opening_index') }}">Retour</a>
+
+</div>
+{% endblock %}

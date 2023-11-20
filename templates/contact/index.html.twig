@@ -2,10 +2,28 @@
 {% block title %}Nous contacter{% endblock %}
 {% block body %}
 <!--Contenu-->
-<div class="container">
-    <div class="row">
-        <p>Vous pouvez nous laisser votre avis <a href="comment">en cliquant ici</a> </p>
-        <p>via facebook / add favicon</p>
+<div class="container wrapper">
+    <div class="row mt-4 text-center">
+        <p>Formulaire de contact : <a href="letter/new">Envoyer un message</a></p>
+        <p>Vous pouvez nous laisser votre avis <a href="comment">en cliquant ici</a></p>
+        <p>Téléphone : 01.02.03.04.05 / 06.07.08.09.10</p>
+        <p>Adresse postale : 22 impasse du bel arbre</p>
+        <p>Mail : le courrier@adresse.fr</p>
+        <p>Et suivez-nous sur les réseaux :</p>
+        <p>facebook (lien à venir)</p>
+        <p>X (twitter) (lien à venir)</p>
+        <p></p>
     </div>
 </div>
+<!--Footer-->
+<footer>
+    <div class="container text-center foot">
+        <div class="row">
+            <div class="col">
+                <p>{{ opening.hours }}</p>
+              &copy; 2023 site réalisé dans le cadre d'une évaluation</p>
+            </div>
+        </div>
+    </div>
+</footer>
 {% endblock %}

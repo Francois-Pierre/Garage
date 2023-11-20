@@ -21,6 +21,34 @@ class CardRepository extends ServiceEntityRepository
         parent::__construct($registry, Card::class);
     }
 
+    
+    public function findByFilters($priceMin, $priceMax, $mileage, $year)
+    {
+        $qb = $this->createQueryBuilder('c');
+
+        if ($priceMin !== null) {
+            $qb->andWhere('c.price >= :priceMin')
+                ->setParameter('priceMin', $priceMin);
+        }
+
+        if ($priceMax !== null) {
+            $qb->andWhere('c.price <= :priceMax')
+                ->setParameter('priceMax', $priceMax);
+        }
+
+        if ($mileage !== null) {
+            $qb->andWhere('c.mileage <= :mileage')
+                ->setParameter('mileage', $mileage);
+        }
+
+        if ($year !== null) {
+            $qb->andWhere('c.year = :year')
+                ->setParameter('year', $year);
+        }
+
+        return $qb->getQuery()->getResult();
+    }
+
 //    /**
 //     * @return Card[] Returns an array of Card objects
 //     */

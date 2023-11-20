@@ -4,26 +4,49 @@
 <!--Creation de commentaire-->
 <div class="container">
   <div class="row">
+    <div class="filters mt-2">
+      <label for="priceRange">Fourchette de prix:</label>
+      <input type="number" id="priceRangeMin" placeholder="Min">
+      <input type="number" id="priceRangeMax" placeholder="Max">
+    
+      <label for="mileage">Nombre de kilomètres:</label>
+      <input type="number" id="mileage" placeholder="Kilomètres">
+    
+      <label for="year">Année de mise en circulation:</label>
+      <input type="number" id="year" placeholder="Année">
+    
+      <button id="applyFiltersButton">Appliquer les filtres</button>
+    </div>
       <h2>Votre annonce</h2>
           {% for card in cards %}
               <div class="card card-container">
                 <img src="{{ asset(card.ImagePath starts with '/' ? card.ImagePath : '/pictures/' ~ card.ImagePath) }}" class="card-img-top" alt="{{ card.ImagePath }}">
                 <div class="card-body">
                   <h5 class="card-title">{{ card.Title }}</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <p class="card-text">{{ card.Description }}</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">{{ card.Price }}</li>
-                  <li class="list-group-item">{{ card.Mileage }}</li>
-                  <li class="list-group-item">{{ card.Year }}</li>
+                  <li class="list-group-item"><p>Prix :  {{ card.Price }} euros</p></li>
+                  <li class="list-group-item"><p>Kilométrage :  {{ card.Mileage }} km</p></li>
+                  <li class="list-group-item"><p>Année :  {{ card.Year }}</p></li>
+                  <li class="list-group-item"><a href="{{ path('app_letter_new', {'title': card.Title}) }}">Contacter le vendeur</a></li>
                 </ul>
-                <div class="card-body">
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
-                </div>
               </div>
           {% endfor %}
 
   </div>
 </div>
+<!--Footer-->
+<footer>
+  <div class="container text-center foot">
+      <div class="row">
+          <div class="col">
+              <p>{{ opening.hours }}</p>
+            &copy; 2023 site réalisé dans le cadre d'une évaluation</p>
+          </div>
+      </div>
+  </div>
+</footer>
+<script src="/public/build/app.js"></script>
 {% endblock %}
+

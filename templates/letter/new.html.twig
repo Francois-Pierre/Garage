@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau message{% endblock %}
+
+{% block body %}
+<div class="container mt-3">
+    <h2>Votre message</h2>
+    {{ include('letter/_form.html.twig') }}
+</div>
+{% endblock %}

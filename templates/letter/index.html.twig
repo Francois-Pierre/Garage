@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des messages{% endblock %}
+
+{% block body %}
+<div class="container mt-3">
+    <h2>Lettres reçues</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Numéro</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>E-mail</th>
+                <th>Téléphone</th>
+                <th>Texte</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for letter in letters %}
+            <tr>
+                <td>{{ letter.id }}</td>
+                <td>{{ letter.Firstname }}</td>
+                <td>{{ letter.Name }}</td>
+                <td>{{ letter.Mail }}</td>
+                <td>{{ letter.Phone }}</td>
+                <td>{{ letter.Text }}</td>
+                <td>
+                    <a href="{{ path('app_letter_edit', {'id': letter.id}) }}">Traiter</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Dossier vide</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

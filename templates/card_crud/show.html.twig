@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonce choisie{% endblock %}
+
+{% block body %}
+<div class="container text-center mt-4">
+    <div class="card card-container">
+        <img src="{{ asset(card.ImagePath starts with '/' ? card.ImagePath : '/pictures/' ~ card.ImagePath) }}" class="card-img-top" alt="{{ card.ImagePath }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ card.Title }}</h5>
+          <p class="card-text">{{ card.Description }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><p>Prix :  {{ card.Price }} euros</p></li>
+          <li class="list-group-item"><p>Kilométrage :  {{ card.Mileage }} km</p></li>
+          <li class="list-group-item"><p>Année :  {{ card.Year }}</p></li>
+        </ul>
+    </div>
+ 
+    <a href="{{ path('app_card_crud_index') }}">Retour à la liste</a>
+    <a href="{{ path('app_card_crud_edit', {'id': card.id}) }}">Modifier</a>
+    {{ include('card_crud/_delete_form.html.twig') }}
+</div>
+{% endblock %}

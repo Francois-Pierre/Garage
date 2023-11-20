@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pied-de-page{% endblock %}
+
+{% block body %}
+<div class="container text-center">
+    <h2>Texte du bas de page</h2>
+
+    <table class="table">
+        <tbody>
+        {% for opening in openings %}
+            <tr>
+                <!--<td>{{ opening.id }}</td>-->
+                <td>{{ opening.Hours }}</td>
+                <td>
+                    <!--<a href="{{ path('app_opening_show', {'id': opening.id}) }}">show</a>-->
+                    <a href="{{ path('app_opening_edit', {'id': opening.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Pas de message enregistré</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <!--<a href="{{ path('app_opening_new') }}">Create new</a>-->
+</div>
+{% endblock %}

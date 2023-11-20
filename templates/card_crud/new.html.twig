@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle annonce{% endblock %}
+
+{% block body %}
+    <h1>Create new Card</h1>
+
+    {{ include('card_crud/_form.html.twig') }}
+
+    <a href="{{ path('app_card_crud_index') }}">Retour à la liste</a>
+{% endblock %}
