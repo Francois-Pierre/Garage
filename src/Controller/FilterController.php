@@ -14,8 +14,10 @@ class FilterController extends AbstractController
     #[Route('/filter', name: 'app_filter')]
     public function filtrage(Request $request, CardRepository $CardRepository): Response
     {
-        // Récupère l'année à partir de la requête
+        // Récupère les data à partir de la requête
         $targetYear = $request->get('year');
+        $targetMileage = $request->get('Mileage');
+        $targetPrice = $request->get('Price');
     
         // Initialise un tableau vide pour stocker les conditions de filtrage
         $conditions = [];
@@ -24,7 +26,16 @@ class FilterController extends AbstractController
         if ($targetYear !== null) {
             $conditions['year'] = $targetYear;
         }
-    
+        // Ajoute les conditions de filtrage pour "mileage"
+        if ($targetMileage !== null) {
+            $conditions['Mileage'] = $targetMileage;
+        }
+
+        // Ajoute les conditions de filtrage pour "priceRangeMin"
+        if ($targetPrice !== null) {
+            $conditions['Price'] = ['gte' => $targetPrice];
+        }
+  
         // Récupère les cartes en fonction des conditions de filtrage
         $cartesFiltrees = $CardRepository->findBy($conditions);
     

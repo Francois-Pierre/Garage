@@ -21,17 +21,32 @@ $(function() {
   // Fonction pour appliquer les filtres
   const applyFilters = async () => {
     const targetYear = parseInt($('#year').val()) || 0;
-
+    const targetMileage = parseInt($('#mileage').val()) || 0;
+    const targetPrice = parseInt($('#price').val()) || 0;
+console.log(targetPrice);
     try {
 
-      const requestData = targetYear ? { year: targetYear } : {};
+        const requestData = {};
+              
+        // Vérifie si les valeurs sont valides avant de les inclure dans la requête
 
-      const response = await $.ajax({
-        url: '/filter',
-        method: 'GET',
-        data: requestData,
+        if (!isNaN(targetYear) && targetYear !== 0) {
+          requestData.year = targetYear;
+        }
+        if (!isNaN(targetMileage) && targetMileage !== 0) {
+          requestData.Mileage = targetMileage;
+        }
+        if (!isNaN(targetPrice) && targetPrice !== 0) {
+          requestData.Price = targetPrice;
+        }
+
+        const response = await $.ajax({
+          url: '/filter',
+          method: 'GET',
+          data: requestData,
       });
 
+      console.log(requestData);
 
       // Remplace le contenu de la div qui contient les cartes
       $('.cartes-container').html(response);
