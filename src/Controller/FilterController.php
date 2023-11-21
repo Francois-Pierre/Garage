@@ -2,44 +2,33 @@
 
 namespace App\Controller;
 
-use App\Entity\Card;
+use App\Repository\CardRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\CardRepository;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class FilterController extends AbstractController
 {
     #[Route('/filter', name: 'app_filter')]
-    public function filterCards(Request $request, CardRepository $CardRepository) {
-
-        // Récupérez les paramètres de la requête GET envoyés par AJAX
-        $priceMin = $request->query->get('priceMin');
-        $priceMax = $request->query->get('priceMax');
-        $mileage = $request->query->get('mileage');
-        $year = $request->query->get('year');
-
-        // Utilisez les paramètres pour filtrer les cartes
-        $filteredCards = $CardRepository->findByFilters($priceMin, $priceMax, $mileage, $year);
-
-        // Transformez les entités en tableau pour la réponse JSON
-        $filteredCardsArray = [];
-        foreach ($filteredCards as $card) {
-            $filteredCardsArray[] = [
-                'id' => $card->getId(),
-                'title' => $card->getTitle(),
-                'price' => $card->getPrice(),
-                'mileage' => $card->getMileage(),
-                'year' => $card->getYear(),
-                'imagePath' => $card->getImagePath(),
-                'description' => $card->getDescription(),
-                // Ajoutez d'autres champs selon vos besoins
-            ];
+    public function filtrage(Request $request, CardRepository $CardRepository): Response
+    {
+        // Récupère l'année à partir de la requête
+        $targetYear = $request->get('year');
+    
+        // Initialise un tableau vide pour stocker les conditions de filtrage
+        $conditions = [];
+    
+        // Ajoute la condition de filtre si l'année est spécifiée
+        if ($targetYear !== null) {
+            $conditions['year'] = $targetYear;
         }
-
-        // Retournez la réponse JSON
-        return new JsonResponse($filteredCardsArray);
+    
+        // Récupère les cartes en fonction des conditions de filtrage
+        $cartesFiltrees = $CardRepository->findBy($conditions);
+    
+        // Retourne la vue partielle avec les cartes filtrées
+        return $this->render('filter/index.html.twig', ['cards' => $cartesFiltrees]);
     }
 }
