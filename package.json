@@ -19,7 +19,7 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress",
-        "start": "node public/index.php"
+        "start": "node webpack.config.js"
     },
     "dependencies": {
         "bootstrap": "^5.3.2",
